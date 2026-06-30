@@ -59,9 +59,9 @@
             button17 = new Button();
             label41 = new Label();
             pictureBox32 = new PictureBox();
-            pictureBox35 = new PictureBox();
             label36 = new Label();
             button19 = new Button();
+            pictureBox35 = new PictureBox();
             label25 = new Label();
             label39 = new Label();
             pictureBox26 = new PictureBox();
@@ -131,11 +131,11 @@
             lblTax = new Label();
             lblSubTotal = new Label();
             tabPage2 = new TabPage();
+            lblPaidAmount = new Label();
             lblRemainingBalance = new Label();
             label52 = new Label();
-            label53 = new Label();
+            lblPaidAmount1 = new Label();
             label54 = new Label();
-            lblPaidAmount = new Label();
             dgvPurchaseCart = new DataGridView();
             colItem1 = new DataGridViewTextBoxColumn();
             colQty1 = new DataGridViewTextBoxColumn();
@@ -515,9 +515,9 @@
             panelMenu1.Controls.Add(button17);
             panelMenu1.Controls.Add(label41);
             panelMenu1.Controls.Add(pictureBox32);
-            panelMenu1.Controls.Add(pictureBox35);
             panelMenu1.Controls.Add(label36);
             panelMenu1.Controls.Add(button19);
+            panelMenu1.Controls.Add(pictureBox35);
             panelMenu1.Controls.Add(label25);
             panelMenu1.Controls.Add(label39);
             panelMenu1.Controls.Add(pictureBox26);
@@ -592,7 +592,7 @@
             // 
             label45.AutoSize = true;
             label45.Font = new Font("Microsoft Sans Serif", 9F);
-            label45.Location = new Point(605, 687);
+            label45.Location = new Point(609, 585);
             label45.Name = "label45";
             label45.Size = new Size(136, 18);
             label45.TabIndex = 86;
@@ -601,7 +601,7 @@
             // pictureBox37
             // 
             pictureBox37.Image = Properties.Resources.download__35_;
-            pictureBox37.Location = new Point(491, 680);
+            pictureBox37.Location = new Point(506, 585);
             pictureBox37.Name = "pictureBox37";
             pictureBox37.Size = new Size(97, 63);
             pictureBox37.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -623,7 +623,7 @@
             // 
             label44.AutoSize = true;
             label44.Font = new Font("Microsoft Sans Serif", 9F);
-            label44.Location = new Point(375, 680);
+            label44.Location = new Point(609, 687);
             label44.Name = "label44";
             label44.Size = new Size(119, 18);
             label44.TabIndex = 83;
@@ -633,7 +633,7 @@
             // pictureBox36
             // 
             pictureBox36.Image = Properties.Resources.download__5_;
-            pictureBox36.Location = new Point(272, 680);
+            pictureBox36.Location = new Point(500, 687);
             pictureBox36.Name = "pictureBox36";
             pictureBox36.Size = new Size(97, 63);
             pictureBox36.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -668,7 +668,7 @@
             // 
             label40.AutoSize = true;
             label40.Font = new Font("Microsoft Sans Serif", 9F);
-            label40.Location = new Point(609, 587);
+            label40.Location = new Point(363, 585);
             label40.Name = "label40";
             label40.Size = new Size(79, 18);
             label40.TabIndex = 41;
@@ -689,7 +689,7 @@
             // pictureBox34
             // 
             pictureBox34.Image = Properties.Resources.download__12_;
-            pictureBox34.Location = new Point(491, 587);
+            pictureBox34.Location = new Point(253, 585);
             pictureBox34.Name = "pictureBox34";
             pictureBox34.Size = new Size(97, 63);
             pictureBox34.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -700,7 +700,7 @@
             // 
             label38.AutoSize = true;
             label38.Font = new Font("Microsoft Sans Serif", 9F);
-            label38.Location = new Point(134, 682);
+            label38.Location = new Point(355, 687);
             label38.Name = "label38";
             label38.Size = new Size(144, 18);
             label38.TabIndex = 41;
@@ -734,7 +734,7 @@
             // 
             label41.AutoSize = true;
             label41.Font = new Font("Microsoft Sans Serif", 7F);
-            label41.Location = new Point(357, 588);
+            label41.Location = new Point(136, 682);
             label41.Name = "label41";
             label41.Size = new Size(88, 15);
             label41.TabIndex = 38;
@@ -749,16 +749,6 @@
             pictureBox32.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox32.TabIndex = 40;
             pictureBox32.TabStop = false;
-            // 
-            // pictureBox35
-            // 
-            pictureBox35.Image = Properties.Resources.download__36_;
-            pictureBox35.Location = new Point(241, 587);
-            pictureBox35.Name = "pictureBox35";
-            pictureBox35.Size = new Size(97, 63);
-            pictureBox35.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox35.TabIndex = 37;
-            pictureBox35.TabStop = false;
             // 
             // label36
             // 
@@ -781,6 +771,16 @@
             button19.Tag = "0.25";
             button19.Text = "Add";
             button19.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox35
+            // 
+            pictureBox35.Image = Properties.Resources.download__36_;
+            pictureBox35.Location = new Point(254, 682);
+            pictureBox35.Name = "pictureBox35";
+            pictureBox35.Size = new Size(97, 63);
+            pictureBox35.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox35.TabIndex = 37;
+            pictureBox35.TabStop = false;
             // 
             // label25
             // 
@@ -1517,11 +1517,11 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(lblPaidAmount);
             tabPage2.Controls.Add(lblRemainingBalance);
             tabPage2.Controls.Add(label52);
-            tabPage2.Controls.Add(label53);
+            tabPage2.Controls.Add(lblPaidAmount1);
             tabPage2.Controls.Add(label54);
-            tabPage2.Controls.Add(lblPaidAmount);
             tabPage2.Controls.Add(dgvPurchaseCart);
             tabPage2.Controls.Add(label23);
             tabPage2.Controls.Add(lblPTotal);
@@ -1560,35 +1560,46 @@
             tabPage2.Text = "Purchase";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblPaidAmount
+            // 
+            lblPaidAmount.AutoSize = true;
+            lblPaidAmount.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPaidAmount.Location = new Point(1242, 554);
+            lblPaidAmount.Name = "lblPaidAmount";
+            lblPaidAmount.Size = new Size(66, 25);
+            lblPaidAmount.TabIndex = 142;
+            lblPaidAmount.Text = "$0.00";
+            // 
             // lblRemainingBalance
             // 
             lblRemainingBalance.AutoSize = true;
             lblRemainingBalance.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRemainingBalance.Location = new Point(831, 596);
+            lblRemainingBalance.Location = new Point(1243, 600);
             lblRemainingBalance.Name = "lblRemainingBalance";
-            lblRemainingBalance.Size = new Size(198, 28);
+            lblRemainingBalance.Size = new Size(65, 28);
             lblRemainingBalance.TabIndex = 141;
-            lblRemainingBalance.Text = "Remaining Balance:";
+            lblRemainingBalance.Text = "$0.00";
             // 
             // label52
             // 
             label52.AutoSize = true;
             label52.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label52.Location = new Point(1242, 596);
+            label52.Location = new Point(831, 600);
             label52.Name = "label52";
-            label52.Size = new Size(65, 28);
+            label52.Size = new Size(198, 28);
             label52.TabIndex = 140;
-            label52.Text = "$0.00";
+            label52.Text = "Remaining Balance:";
+            label52.Click += label52_Click;
             // 
-            // label53
+            // lblPaidAmount1
             // 
-            label53.AutoSize = true;
-            label53.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label53.Location = new Point(1242, 551);
-            label53.Name = "label53";
-            label53.Size = new Size(65, 28);
-            label53.TabIndex = 139;
-            label53.Text = "$0.00";
+            lblPaidAmount1.AutoSize = true;
+            lblPaidAmount1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPaidAmount1.Location = new Point(831, 554);
+            lblPaidAmount1.Name = "lblPaidAmount1";
+            lblPaidAmount1.Size = new Size(140, 28);
+            lblPaidAmount1.TabIndex = 139;
+            lblPaidAmount1.Text = "Paid Amount:";
             // 
             // label54
             // 
@@ -1597,16 +1608,6 @@
             label54.Name = "label54";
             label54.Size = new Size(0, 25);
             label54.TabIndex = 138;
-            // 
-            // lblPaidAmount
-            // 
-            lblPaidAmount.AutoSize = true;
-            lblPaidAmount.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPaidAmount.Location = new Point(831, 551);
-            lblPaidAmount.Name = "lblPaidAmount";
-            lblPaidAmount.Size = new Size(140, 28);
-            lblPaidAmount.TabIndex = 137;
-            lblPaidAmount.Text = "Paid Amount:";
             // 
             // dgvPurchaseCart
             // 
@@ -1622,6 +1623,7 @@
             dgvPurchaseCart.RowHeadersWidth = 51;
             dgvPurchaseCart.Size = new Size(631, 301);
             dgvPurchaseCart.TabIndex = 125;
+          
             // 
             // colItem1
             // 
@@ -1665,31 +1667,31 @@
             // 
             lblPTotal.AutoSize = true;
             lblPTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPTotal.Location = new Point(831, 504);
+            lblPTotal.Location = new Point(1242, 507);
             lblPTotal.Name = "lblPTotal";
-            lblPTotal.Size = new Size(64, 28);
+            lblPTotal.Size = new Size(65, 28);
             lblPTotal.TabIndex = 136;
-            lblPTotal.Text = "Total:";
+            lblPTotal.Text = "$0.00";
             // 
             // label26
             // 
             label26.AutoSize = true;
             label26.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label26.Location = new Point(1242, 504);
+            label26.Location = new Point(831, 507);
             label26.Name = "label26";
-            label26.Size = new Size(65, 28);
+            label26.Size = new Size(64, 28);
             label26.TabIndex = 135;
-            label26.Text = "$0.00";
+            label26.Text = "Total:";
             // 
             // label46
             // 
             label46.AutoSize = true;
             label46.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label46.Location = new Point(1242, 432);
+            label46.Location = new Point(831, 432);
             label46.Name = "label46";
-            label46.Size = new Size(65, 28);
+            label46.Size = new Size(105, 28);
             label46.TabIndex = 134;
-            label46.Text = "$0.00";
+            label46.Text = "Sub Total:";
             // 
             // btnPClearCart
             // 
@@ -1707,11 +1709,11 @@
             // 
             label47.AutoSize = true;
             label47.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label47.Location = new Point(1242, 467);
+            label47.Location = new Point(831, 467);
             label47.Name = "label47";
-            label47.Size = new Size(65, 28);
+            label47.Size = new Size(49, 28);
             label47.TabIndex = 133;
-            label47.Text = "$0.00";
+            label47.Text = "Tax:";
             // 
             // btnPSumitPurchase
             // 
@@ -1724,6 +1726,7 @@
             btnPSumitPurchase.TabIndex = 128;
             btnPSumitPurchase.Text = "Sumit Purchase";
             btnPSumitPurchase.UseVisualStyleBackColor = false;
+            btnPSumitPurchase.Click += btnPSumitPurchase_Click_1;
             // 
             // label48
             // 
@@ -1744,26 +1747,27 @@
             btnPCancel.TabIndex = 129;
             btnPCancel.Text = "Cancel";
             btnPCancel.UseVisualStyleBackColor = false;
+            btnPCancel.Click += btnPCancel_Click_1;
             // 
             // lblPTax
             // 
             lblPTax.AutoSize = true;
             lblPTax.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPTax.Location = new Point(831, 467);
+            lblPTax.Location = new Point(1242, 467);
             lblPTax.Name = "lblPTax";
-            lblPTax.Size = new Size(49, 28);
+            lblPTax.Size = new Size(65, 28);
             lblPTax.TabIndex = 131;
-            lblPTax.Text = "Tax:";
+            lblPTax.Text = "$0.00";
             // 
             // lblPSubTotal
             // 
             lblPSubTotal.AutoSize = true;
             lblPSubTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPSubTotal.Location = new Point(831, 432);
+            lblPSubTotal.Location = new Point(1242, 432);
             lblPSubTotal.Name = "lblPSubTotal";
-            lblPSubTotal.Size = new Size(105, 28);
+            lblPSubTotal.Size = new Size(65, 28);
             lblPSubTotal.TabIndex = 130;
-            lblPSubTotal.Text = "Sub Total:";
+            lblPSubTotal.Text = "$0.00";
             // 
             // btnAddToCart
             // 
@@ -1960,9 +1964,9 @@
             tabPage3.Controls.Add(txtSearchItems);
             tabPage3.Controls.Add(panel3);
             tabPage3.Controls.Add(panel1);
-            tabPage3.Location = new Point(0, 40);
+            tabPage3.Location = new Point(0, 120);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1807, 1015);
+            tabPage3.Size = new Size(200, 0);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Stock";
             tabPage3.UseVisualStyleBackColor = true;
@@ -2117,23 +2121,24 @@
             // 
             label58.AutoSize = true;
             label58.BackColor = Color.Red;
+            label58.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label58.ForeColor = SystemColors.ButtonFace;
-            label58.Location = new Point(196, 70);
+            label58.Location = new Point(196, 16);
             label58.Name = "label58";
-            label58.Size = new Size(199, 25);
+            label58.Size = new Size(132, 25);
             label58.TabIndex = 1;
-            label58.Text = "8 Items with low stock";
+            label58.Text = "Out of Stock";
             // 
             // lblOutOfStock
             // 
             lblOutOfStock.AutoSize = true;
             lblOutOfStock.BackColor = Color.Red;
             lblOutOfStock.ForeColor = SystemColors.ButtonFace;
-            lblOutOfStock.Location = new Point(196, 28);
+            lblOutOfStock.Location = new Point(196, 70);
             lblOutOfStock.Name = "lblOutOfStock";
-            lblOutOfStock.Size = new Size(120, 25);
+            lblOutOfStock.Size = new Size(226, 25);
             lblOutOfStock.TabIndex = 0;
-            lblOutOfStock.Text = "Out of Stock";
+            lblOutOfStock.Text = "0 items with Out of Stock";
             // 
             // panel1
             // 
@@ -2160,23 +2165,24 @@
             // 
             label57.AutoSize = true;
             label57.BackColor = Color.FromArgb(255, 128, 0);
+            label57.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label57.ForeColor = SystemColors.ButtonFace;
-            label57.Location = new Point(196, 70);
+            label57.Location = new Point(201, 16);
             label57.Name = "label57";
-            label57.Size = new Size(199, 25);
+            label57.Size = new Size(112, 25);
             label57.TabIndex = 1;
-            label57.Text = "8 Items with low stock";
+            label57.Text = "Low Stock";
             // 
             // lblLowStock
             // 
             lblLowStock.AutoSize = true;
             lblLowStock.BackColor = Color.FromArgb(255, 128, 0);
             lblLowStock.ForeColor = SystemColors.ButtonFace;
-            lblLowStock.Location = new Point(196, 28);
+            lblLowStock.Location = new Point(191, 70);
             lblLowStock.Name = "lblLowStock";
-            lblLowStock.Size = new Size(103, 25);
+            lblLowStock.Size = new Size(209, 25);
             lblLowStock.TabIndex = 0;
-            lblLowStock.Text = "Low Stock";
+            lblLowStock.Text = "0 items with Low Stock";
             // 
             // tabPage5
             // 
@@ -2192,9 +2198,9 @@
             tabPage5.Controls.Add(btnDeleteCustomer);
             tabPage5.Controls.Add(btnEditCustomer);
             tabPage5.Controls.Add(panelCustomerInfo);
-            tabPage5.Location = new Point(0, 40);
+            tabPage5.Location = new Point(0, 160);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1807, 1015);
+            tabPage5.Size = new Size(200, 0);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Customer ";
             tabPage5.UseVisualStyleBackColor = true;
@@ -2442,9 +2448,9 @@
             tabPage4.Controls.Add(label74);
             tabPage4.Controls.Add(dtpDateFrom);
             tabPage4.Controls.Add(label73);
-            tabPage4.Location = new Point(0, 40);
+            tabPage4.Location = new Point(0, 200);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1807, 1015);
+            tabPage4.Size = new Size(200, 0);
             tabPage4.TabIndex = 5;
             tabPage4.Text = "Report ";
             tabPage4.UseVisualStyleBackColor = true;
@@ -2777,9 +2783,9 @@
             tabPage6.Controls.Add(button32);
             tabPage6.Controls.Add(label84);
             tabPage6.Controls.Add(txtSearchOrder);
-            tabPage6.Location = new Point(0, 40);
+            tabPage6.Location = new Point(0, 240);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(1807, 1015);
+            tabPage6.Size = new Size(200, 0);
             tabPage6.TabIndex = 6;
             tabPage6.Text = "Order History";
             tabPage6.UseVisualStyleBackColor = true;
@@ -3291,9 +3297,8 @@
         private TabPage tabPage2;
         private Label lblRemainingBalance;
         private Label label52;
-        private Label label53;
+        private Label lblPaidAmount1;
         private Label label54;
-        private Label lblPaidAmount;
         private DataGridView dgvPurchaseCart;
         private DataGridViewTextBoxColumn colItem1;
         private DataGridViewTextBoxColumn colQty1;
@@ -3432,5 +3437,6 @@
         private Button button32;
         private Label label84;
         private TextBox txtSearchOrder;
+        private Label lblPaidAmount;
     }
 }

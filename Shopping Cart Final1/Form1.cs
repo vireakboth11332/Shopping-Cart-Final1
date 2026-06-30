@@ -30,6 +30,9 @@ namespace Shopping_Cart_Final1
             ("Water",        0.25m),   //button19
             ("Beer",         2.00m),   // button21
             ("Orange Juice", 1.00m),   // button24
+            ("Hot Chocolate", 2.00m),   // button23
+             ("LemonTea", 1.00m),
+
         };
         public Form1()
         {
@@ -38,9 +41,9 @@ namespace Shopping_Cart_Final1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             this.WindowState = FormWindowState.Maximized;
-            
+
             // Payment Method
             cboPaymentMethod.Items.Clear();
             cboPaymentMethod.Items.AddRange(new string[] { "Cash", "ABA Bank", "Wing", "Acleda X" });
@@ -352,12 +355,7 @@ namespace Shopping_Cart_Final1
             CalcRemainingBalance();
         }
 
-        private void CalcRemainingBalance()
-        {
-            decimal.TryParse(lblPTotal.Text, out decimal total);
-            decimal.TryParse(lblPaidAmount.Text, out decimal paid);
-            lblRemainingBalance.Text = (total - paid).ToString("0.00");
-        }
+
 
         private void txtPaidAmount_TextChanged(object sender, EventArgs e)
         {
@@ -922,5 +920,141 @@ namespace Shopping_Cart_Final1
         {
             Application.Exit();
         }
+
+        private void label52_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CalcRemainingBalance()
+        {
+            decimal.TryParse(lblPTotal.Text, out decimal total);
+
+            // ប្តូរមកប្រើ lblPaidAmount ជំនួស txtPaidAmount
+            string paidText = string.IsNullOrEmpty(lblPaidAmount.Text) ? "0" : lblPaidAmount.Text;
+            decimal.TryParse(paidText, out decimal paid);
+
+            lblRemainingBalance.Text = (total - paid).ToString("0.00");
+        }
+
+        private void btnPSumitPurchase_Click_1(object sender, EventArgs e)
+        {
+            if (dgvPurchaseCart.Rows.Count == 0)
+            {
+                MessageBox.Show("កន្ត្រកទំនិញនៅទទេ!", "ព្រមាន", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(cboSupplier.Text))
+            {
+                MessageBox.Show("សូមជ្រើសរើស អ្នកផ្គត់ផ្គង់ (Supplier)!", "ព្រមាន", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // គណនាតម្លៃពីតារាងផ្ទាល់
+            decimal sub = 0;
+            foreach (DataGridViewRow row in dgvPurchaseCart.Rows)
+            {
+                if (row.Cells[3].Value != null)
+                    sub += Convert.ToDecimal(row.Cells[3].Value);
+            }
+            decimal tax = sub * 0.1m;
+            decimal total = sub + tax;
+
+            // ចាប់តម្លៃពី lblPaidAmount បើទទេឱ្យស្មើ 0
+            string paidText = string.IsNullOrEmpty(lblPaidAmount.Text) ? "0" : lblPaidAmount.Text;
+            decimal.TryParse(paidText, out decimal paid);
+
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlTransaction tr = conn.BeginTransaction();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(@"
+                INSERT INTO Purchases (SupplierName, InvoiceNo, Remarks, SubTotal, Tax, TotalAmount, PaidAmount, RemainingBalance, PurchaseDate)
+                OUTPUT INSERTED.PurchaseID
+                VALUES (@supplier, @invoice, @remarks, @sub, @tax, @total, @paid, @remain, @date)", conn, tr);
+
+                    cmd.Parameters.AddWithValue("@supplier", cboSupplier.Text);
+                    cmd.Parameters.AddWithValue("@invoice", string.IsNullOrEmpty(txtInvoiceNo.Text) ? (object)DBNull.Value : txtInvoiceNo.Text);
+                    cmd.Parameters.AddWithValue("@remarks", string.IsNullOrEmpty(txtRemarks.Text) ? (object)DBNull.Value : txtRemarks.Text);
+                    cmd.Parameters.AddWithValue("@sub", sub);
+                    cmd.Parameters.AddWithValue("@tax", tax);
+                    cmd.Parameters.AddWithValue("@total", total);
+                    cmd.Parameters.AddWithValue("@paid", paid);
+                    cmd.Parameters.AddWithValue("@remain", total - paid); // លុយនៅខ្វះ
+                    cmd.Parameters.AddWithValue("@date", DateTime.Now);
+
+                    int pid = (int)cmd.ExecuteScalar();
+
+                    foreach (DataGridViewRow row in dgvPurchaseCart.Rows)
+                    {
+                        if (row.Cells[0].Value == null) continue;
+                        string name = row.Cells[0].Value.ToString();
+                        int iqty = Convert.ToInt32(row.Cells[1].Value);
+                        decimal price = Convert.ToDecimal(row.Cells[2].Value);
+                        decimal iTotal = Convert.ToDecimal(row.Cells[3].Value);
+
+                        new SqlCommand(@"INSERT INTO PurchaseDetails (PurchaseID, ItemName, Qty, UnitPrice, Total)
+                    VALUES (@pid, @item, @qty, @price, @total)", conn, tr)
+                        {
+                            Parameters = {
+                        new SqlParameter("@pid",   pid),
+                        new SqlParameter("@item",  name),
+                        new SqlParameter("@qty",   iqty),
+                        new SqlParameter("@price", price),
+                        new SqlParameter("@total", iTotal)
+                    }
+                        }.ExecuteNonQuery();
+
+                        new SqlCommand("UPDATE Products SET StockQty = StockQty + @qty, CostPrice = @price WHERE ItemName = @item", conn, tr)
+                        {
+                            Parameters = {
+                        new SqlParameter("@qty",   iqty),
+                        new SqlParameter("@price", price),
+                        new SqlParameter("@item",  name)
+                    }
+                        }.ExecuteNonQuery();
+                    }
+
+                    tr.Commit();
+                    MessageBox.Show("រក្សាទុកការទិញចូលជោគជ័យ!", "ជោគជ័យ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearFullForm();
+                }
+                catch (Exception ex)
+                {
+                    tr.Rollback();
+                    MessageBox.Show("មានបញ្ហា៖ " + ex.Message, "កំហុស", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // មុខងារ Clear Form ទាំងមូល (Cancel)
+        private void ClearFullForm()
+        {
+            dgvPurchaseCart.Rows.Clear();
+            cboSupplier.SelectedIndex = -1;
+            cboProduct.SelectedIndex = -1;
+            cboQty.Text = "";
+            txtInvoiceNo.Clear();
+            txtRemarks.Clear();
+            txtUnitPrice.Clear();
+
+            txtTotal.Text = "0.00";
+            lblPSubTotal.Text = "0.00";
+            lblPTax.Text = "0.00";
+            lblPTotal.Text = "0.00";
+            lblPaidAmount.Text = "0.00"; // កំណត់ Label ទៅ 0.00 វិញ
+            lblRemainingBalance.Text = "0.00";
+        }
+
+        private void btnPCancel_Click_1(object sender, EventArgs e)
+        {
+            // ហៅ Function សម្អាត Form ទាំងមូលឱ្យដំណើរការ
+            ClearFullForm();
+        }
+        
+
     }
 }
