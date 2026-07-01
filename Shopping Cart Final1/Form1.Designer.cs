@@ -500,11 +500,12 @@
             panelMenu1.AutoScroll = true;
             panelMenu1.BackColor = SystemColors.ButtonFace;
             panelMenu1.Controls.Add(button24);
+            panelMenu1.Controls.Add(label41);
             panelMenu1.Controls.Add(label45);
             panelMenu1.Controls.Add(pictureBox37);
             panelMenu1.Controls.Add(button23);
-            panelMenu1.Controls.Add(label44);
             panelMenu1.Controls.Add(pictureBox36);
+            panelMenu1.Controls.Add(label44);
             panelMenu1.Controls.Add(button21);
             panelMenu1.Controls.Add(button22);
             panelMenu1.Controls.Add(label40);
@@ -513,13 +514,12 @@
             panelMenu1.Controls.Add(label38);
             panelMenu1.Controls.Add(button20);
             panelMenu1.Controls.Add(button17);
-            panelMenu1.Controls.Add(label41);
-            panelMenu1.Controls.Add(pictureBox32);
             panelMenu1.Controls.Add(label36);
+            panelMenu1.Controls.Add(pictureBox32);
             panelMenu1.Controls.Add(button19);
-            panelMenu1.Controls.Add(pictureBox35);
             panelMenu1.Controls.Add(label25);
             panelMenu1.Controls.Add(label39);
+            panelMenu1.Controls.Add(pictureBox35);
             panelMenu1.Controls.Add(pictureBox26);
             panelMenu1.Controls.Add(pictureBox33);
             panelMenu1.Controls.Add(pictureBox27);
@@ -612,7 +612,7 @@
             // 
             button23.BackColor = SystemColors.MenuHighlight;
             button23.ForeColor = SystemColors.ButtonFace;
-            button23.Location = new Point(371, 714);
+            button23.Location = new Point(372, 714);
             button23.Name = "button23";
             button23.Size = new Size(95, 29);
             button23.TabIndex = 84;
@@ -623,7 +623,7 @@
             // 
             label44.AutoSize = true;
             label44.Font = new Font("Microsoft Sans Serif", 9F);
-            label44.Location = new Point(609, 687);
+            label44.Location = new Point(371, 680);
             label44.Name = "label44";
             label44.Size = new Size(119, 18);
             label44.TabIndex = 83;
@@ -633,7 +633,7 @@
             // pictureBox36
             // 
             pictureBox36.Image = Properties.Resources.download__5_;
-            pictureBox36.Location = new Point(500, 687);
+            pictureBox36.Location = new Point(268, 687);
             pictureBox36.Name = "pictureBox36";
             pictureBox36.Size = new Size(97, 63);
             pictureBox36.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -700,7 +700,7 @@
             // 
             label38.AutoSize = true;
             label38.Font = new Font("Microsoft Sans Serif", 9F);
-            label38.Location = new Point(355, 687);
+            label38.Location = new Point(128, 687);
             label38.Name = "label38";
             label38.Size = new Size(144, 18);
             label38.TabIndex = 41;
@@ -734,7 +734,7 @@
             // 
             label41.AutoSize = true;
             label41.Font = new Font("Microsoft Sans Serif", 7F);
-            label41.Location = new Point(136, 682);
+            label41.Location = new Point(609, 683);
             label41.Name = "label41";
             label41.Size = new Size(88, 15);
             label41.TabIndex = 38;
@@ -743,7 +743,7 @@
             // pictureBox32
             // 
             pictureBox32.Image = Properties.Resources.download__9_;
-            pictureBox32.Location = new Point(25, 682);
+            pictureBox32.Location = new Point(506, 687);
             pictureBox32.Name = "pictureBox32";
             pictureBox32.Size = new Size(97, 63);
             pictureBox32.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -775,7 +775,7 @@
             // pictureBox35
             // 
             pictureBox35.Image = Properties.Resources.download__36_;
-            pictureBox35.Location = new Point(254, 682);
+            pictureBox35.Location = new Point(25, 680);
             pictureBox35.Name = "pictureBox35";
             pictureBox35.Size = new Size(97, 63);
             pictureBox35.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -1553,9 +1553,9 @@
             tabPage2.Controls.Add(label14);
             tabPage2.Controls.Add(cboSupplier);
             tabPage2.Controls.Add(label13);
-            tabPage2.Location = new Point(0, 40);
+            tabPage2.Location = new Point(0, 80);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(1807, 1015);
+            tabPage2.Size = new Size(200, 20);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Purchase";
             tabPage2.UseVisualStyleBackColor = true;
@@ -1623,7 +1623,6 @@
             dgvPurchaseCart.RowHeadersWidth = 51;
             dgvPurchaseCart.Size = new Size(631, 301);
             dgvPurchaseCart.TabIndex = 125;
-          
             // 
             // colItem1
             // 
