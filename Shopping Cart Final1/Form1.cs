@@ -31,7 +31,9 @@ namespace Shopping_Cart_Final1
             ("Beer",         2.00m),   // button21
             ("Orange Juice", 1.00m),   // button24
             ("Hot Chocolate", 2.00m),   // button23
-             ("LemonTea", 1.00m),
+            ("LemonTea", 1.00m),
+            ("Caramel", 5.00m),
+
 
         };
         public Form1()
@@ -1045,7 +1047,7 @@ namespace Shopping_Cart_Final1
             lblPSubTotal.Text = "0.00";
             lblPTax.Text = "0.00";
             lblPTotal.Text = "0.00";
-            lblPaidAmount.Text = "0.00"; // កំណត់ Label ទៅ 0.00 វិញ
+            
             lblRemainingBalance.Text = "0.00";
         }
 
@@ -1054,7 +1056,15 @@ namespace Shopping_Cart_Final1
             // ហៅ Function សម្អាត Form ទាំងមូលឱ្យដំណើរការ
             ClearFullForm();
         }
-        
 
+        private void uiTabControl1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

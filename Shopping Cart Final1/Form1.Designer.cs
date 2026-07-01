@@ -44,11 +44,12 @@
             uiFlowLayoutPanel1 = new Sunny.UI.UIFlowLayoutPanel();
             panelMenu1 = new Panel();
             button24 = new Button();
+            label41 = new Label();
             label45 = new Label();
             pictureBox37 = new PictureBox();
             button23 = new Button();
-            label44 = new Label();
             pictureBox36 = new PictureBox();
+            label44 = new Label();
             button21 = new Button();
             button22 = new Button();
             label40 = new Label();
@@ -57,13 +58,12 @@
             label38 = new Label();
             button20 = new Button();
             button17 = new Button();
-            label41 = new Label();
-            pictureBox32 = new PictureBox();
             label36 = new Label();
+            pictureBox32 = new PictureBox();
             button19 = new Button();
-            pictureBox35 = new PictureBox();
             label25 = new Label();
             label39 = new Label();
+            pictureBox35 = new PictureBox();
             pictureBox26 = new PictureBox();
             pictureBox33 = new PictureBox();
             pictureBox27 = new PictureBox();
@@ -131,6 +131,7 @@
             lblTax = new Label();
             lblSubTotal = new Label();
             tabPage2 = new TabPage();
+            dtbDate = new DateTimePicker();
             lblPaidAmount = new Label();
             lblRemainingBalance = new Label();
             label52 = new Label();
@@ -153,7 +154,6 @@
             lblPTax = new Label();
             lblPSubTotal = new Label();
             btnAddToCart = new Button();
-            label22 = new Label();
             label21 = new Label();
             txtTotal = new TextBox();
             txtUnitPrice = new TextBox();
@@ -166,7 +166,6 @@
             cboProduct = new ComboBox();
             label17 = new Label();
             label16 = new Label();
-            dtbDate = new Sunny.UI.UIDatetimePicker();
             label15 = new Label();
             label14 = new Label();
             cboSupplier = new ComboBox();
@@ -216,6 +215,8 @@
             lblGoldMember = new Label();
             picCustomer = new PictureBox();
             tabPage4 = new TabPage();
+            dtpDateTo = new DateTimePicker();
+            dtpDateFrom = new DateTimePicker();
             dgvReport = new DataGridView();
             btnPrintReport = new Button();
             chartPie = new Sunny.UI.UIPieChart();
@@ -239,11 +240,11 @@
             btnGenerateReport = new Button();
             cboReportType = new ComboBox();
             label75 = new Label();
-            dtpDateTo = new Sunny.UI.UIDatePicker();
             label74 = new Label();
-            dtpDateFrom = new Sunny.UI.UIDatePicker();
             label73 = new Label();
             tabPage6 = new TabPage();
+            dtpODateFrom = new DateTimePicker();
+            dtpODateTo = new DateTimePicker();
             cboStatus = new ComboBox();
             btnOCancel = new Button();
             btnClear = new Button();
@@ -256,10 +257,6 @@
             lblOTax = new Label();
             lblOSubTotal = new Label();
             dgvOrderDetail = new DataGridView();
-            colItem2 = new DataGridViewTextBoxColumn();
-            colQty2 = new DataGridViewTextBoxColumn();
-            colPrice1 = new DataGridViewTextBoxColumn();
-            colSubTotal = new DataGridViewTextBoxColumn();
             lblDate = new Label();
             label91 = new Label();
             lblOrderID = new Label();
@@ -267,10 +264,8 @@
             label88 = new Label();
             dgvOrderList = new DataGridView();
             label87 = new Label();
-            dtpODateTo = new Sunny.UI.UIDatePicker();
             label86 = new Label();
             label85 = new Label();
-            dtpODateFrom = new Sunny.UI.UIDatePicker();
             button32 = new Button();
             label84 = new Label();
             txtSearchOrder = new TextBox();
@@ -359,6 +354,7 @@
             uiTabControl1.TabIndex = 1;
             uiTabControl1.TabUnSelectedForeColor = Color.FromArgb(240, 240, 240);
             uiTabControl1.TipsFont = new Font("Microsoft Sans Serif", 9F);
+            uiTabControl1.SelectedIndexChanged += uiTabControl1_SelectedIndexChanged_1;
             // 
             // tabPage1
             // 
@@ -588,6 +584,16 @@
             button24.Text = "Add";
             button24.UseVisualStyleBackColor = false;
             // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Font = new Font("Microsoft Sans Serif", 7F);
+            label41.Location = new Point(609, 683);
+            label41.Name = "label41";
+            label41.Size = new Size(88, 15);
+            label41.TabIndex = 38;
+            label41.Text = "Caramel $5.00";
+            // 
             // label45
             // 
             label45.AutoSize = true;
@@ -619,6 +625,16 @@
             button23.Text = "Add";
             button23.UseVisualStyleBackColor = false;
             // 
+            // pictureBox36
+            // 
+            pictureBox36.Image = Properties.Resources.download__5_;
+            pictureBox36.Location = new Point(268, 687);
+            pictureBox36.Name = "pictureBox36";
+            pictureBox36.Size = new Size(97, 63);
+            pictureBox36.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox36.TabIndex = 82;
+            pictureBox36.TabStop = false;
+            // 
             // label44
             // 
             label44.AutoSize = true;
@@ -629,16 +645,6 @@
             label44.TabIndex = 83;
             label44.Tag = "1.00";
             label44.Text = "LemonTea $1.00";
-            // 
-            // pictureBox36
-            // 
-            pictureBox36.Image = Properties.Resources.download__5_;
-            pictureBox36.Location = new Point(268, 687);
-            pictureBox36.Name = "pictureBox36";
-            pictureBox36.Size = new Size(97, 63);
-            pictureBox36.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox36.TabIndex = 82;
-            pictureBox36.TabStop = false;
             // 
             // button21
             // 
@@ -730,15 +736,15 @@
             button17.Text = "Add";
             button17.UseVisualStyleBackColor = false;
             // 
-            // label41
+            // label36
             // 
-            label41.AutoSize = true;
-            label41.Font = new Font("Microsoft Sans Serif", 7F);
-            label41.Location = new Point(609, 683);
-            label41.Name = "label41";
-            label41.Size = new Size(88, 15);
-            label41.TabIndex = 38;
-            label41.Text = "Caramel $5.00";
+            label36.AutoSize = true;
+            label36.Font = new Font("Microsoft Sans Serif", 7F);
+            label36.Location = new Point(613, 496);
+            label36.Name = "label36";
+            label36.Size = new Size(111, 15);
+            label36.TabIndex = 80;
+            label36.Text = "Energy Drink $1.00";
             // 
             // pictureBox32
             // 
@@ -749,16 +755,6 @@
             pictureBox32.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox32.TabIndex = 40;
             pictureBox32.TabStop = false;
-            // 
-            // label36
-            // 
-            label36.AutoSize = true;
-            label36.Font = new Font("Microsoft Sans Serif", 7F);
-            label36.Location = new Point(613, 496);
-            label36.Name = "label36";
-            label36.Size = new Size(111, 15);
-            label36.TabIndex = 80;
-            label36.Text = "Energy Drink $1.00";
             // 
             // button19
             // 
@@ -771,16 +767,6 @@
             button19.Tag = "0.25";
             button19.Text = "Add";
             button19.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox35
-            // 
-            pictureBox35.Image = Properties.Resources.download__36_;
-            pictureBox35.Location = new Point(25, 680);
-            pictureBox35.Name = "pictureBox35";
-            pictureBox35.Size = new Size(97, 63);
-            pictureBox35.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox35.TabIndex = 37;
-            pictureBox35.TabStop = false;
             // 
             // label25
             // 
@@ -801,6 +787,16 @@
             label39.Size = new Size(88, 18);
             label39.TabIndex = 38;
             label39.Text = "Water $0.25";
+            // 
+            // pictureBox35
+            // 
+            pictureBox35.Image = Properties.Resources.download__36_;
+            pictureBox35.Location = new Point(25, 680);
+            pictureBox35.Name = "pictureBox35";
+            pictureBox35.Size = new Size(97, 63);
+            pictureBox35.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox35.TabIndex = 37;
+            pictureBox35.TabStop = false;
             // 
             // pictureBox26
             // 
@@ -1517,6 +1513,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(dtbDate);
             tabPage2.Controls.Add(lblPaidAmount);
             tabPage2.Controls.Add(lblRemainingBalance);
             tabPage2.Controls.Add(label52);
@@ -1535,7 +1532,6 @@
             tabPage2.Controls.Add(lblPTax);
             tabPage2.Controls.Add(lblPSubTotal);
             tabPage2.Controls.Add(btnAddToCart);
-            tabPage2.Controls.Add(label22);
             tabPage2.Controls.Add(label21);
             tabPage2.Controls.Add(txtTotal);
             tabPage2.Controls.Add(txtUnitPrice);
@@ -1548,33 +1544,38 @@
             tabPage2.Controls.Add(cboProduct);
             tabPage2.Controls.Add(label17);
             tabPage2.Controls.Add(label16);
-            tabPage2.Controls.Add(dtbDate);
             tabPage2.Controls.Add(label15);
             tabPage2.Controls.Add(label14);
             tabPage2.Controls.Add(cboSupplier);
             tabPage2.Controls.Add(label13);
-            tabPage2.Location = new Point(0, 80);
+            tabPage2.Location = new Point(0, 40);
             tabPage2.Name = "tabPage2";
-            tabPage2.Size = new Size(200, 20);
+            tabPage2.Size = new Size(1807, 1015);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Purchase";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dtbDate
+            // 
+            dtbDate.Location = new Point(28, 137);
+            dtbDate.Name = "dtbDate";
+            dtbDate.Size = new Size(250, 30);
+            dtbDate.TabIndex = 143;
             // 
             // lblPaidAmount
             // 
             lblPaidAmount.AutoSize = true;
             lblPaidAmount.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPaidAmount.Location = new Point(1242, 554);
+            lblPaidAmount.Location = new Point(1700, 387);
             lblPaidAmount.Name = "lblPaidAmount";
-            lblPaidAmount.Size = new Size(66, 25);
+            lblPaidAmount.Size = new Size(0, 25);
             lblPaidAmount.TabIndex = 142;
-            lblPaidAmount.Text = "$0.00";
             // 
             // lblRemainingBalance
             // 
             lblRemainingBalance.AutoSize = true;
             lblRemainingBalance.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblRemainingBalance.Location = new Point(1243, 600);
+            lblRemainingBalance.Location = new Point(1242, 554);
             lblRemainingBalance.Name = "lblRemainingBalance";
             lblRemainingBalance.Size = new Size(65, 28);
             lblRemainingBalance.TabIndex = 141;
@@ -1584,7 +1585,7 @@
             // 
             label52.AutoSize = true;
             label52.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label52.Location = new Point(831, 600);
+            label52.Location = new Point(829, 554);
             label52.Name = "label52";
             label52.Size = new Size(198, 28);
             label52.TabIndex = 140;
@@ -1595,11 +1596,10 @@
             // 
             lblPaidAmount1.AutoSize = true;
             lblPaidAmount1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPaidAmount1.Location = new Point(831, 554);
+            lblPaidAmount1.Location = new Point(1667, 412);
             lblPaidAmount1.Name = "lblPaidAmount1";
-            lblPaidAmount1.Size = new Size(140, 28);
+            lblPaidAmount1.Size = new Size(0, 28);
             lblPaidAmount1.TabIndex = 139;
-            lblPaidAmount1.Text = "Paid Amount:";
             // 
             // label54
             // 
@@ -1780,15 +1780,6 @@
             btnAddToCart.UseVisualStyleBackColor = false;
             btnAddToCart.Click += btnAddToCart_Click;
             // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(720, 585);
-            label22.Name = "label22";
-            label22.Size = new Size(61, 25);
-            label22.TabIndex = 18;
-            label22.Text = "$0.00";
-            // 
             // label21
             // 
             label21.AutoSize = true;
@@ -1802,7 +1793,7 @@
             // 
             txtTotal.Location = new Point(33, 582);
             txtTotal.Name = "txtTotal";
-            txtTotal.Size = new Size(757, 30);
+            txtTotal.Size = new Size(325, 30);
             txtTotal.TabIndex = 16;
             // 
             // txtUnitPrice
@@ -1889,27 +1880,6 @@
             label16.Size = new Size(89, 25);
             label16.TabIndex = 7;
             label16.Text = "Remarks";
-            // 
-            // dtbDate
-            // 
-            dtbDate.DateCultureInfo = new System.Globalization.CultureInfo("en-GB");
-            dtbDate.FillColor = Color.White;
-            dtbDate.Font = new Font("Microsoft Sans Serif", 12F);
-            dtbDate.Location = new Point(28, 127);
-            dtbDate.Margin = new Padding(4, 5, 4, 5);
-            dtbDate.MaxLength = 19;
-            dtbDate.MinimumSize = new Size(63, 0);
-            dtbDate.Name = "dtbDate";
-            dtbDate.Padding = new Padding(0, 0, 30, 2);
-            dtbDate.Size = new Size(221, 36);
-            dtbDate.SymbolDropDown = 61555;
-            dtbDate.SymbolNormal = 61555;
-            dtbDate.SymbolSize = 24;
-            dtbDate.TabIndex = 6;
-            dtbDate.Text = "2026-06-28 03:02:51";
-            dtbDate.TextAlignment = ContentAlignment.MiddleLeft;
-            dtbDate.Value = new DateTime(2026, 6, 28, 3, 2, 51, 287);
-            dtbDate.Watermark = "";
             // 
             // label15
             // 
@@ -2432,6 +2402,8 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(dtpDateTo);
+            tabPage4.Controls.Add(dtpDateFrom);
             tabPage4.Controls.Add(dgvReport);
             tabPage4.Controls.Add(btnPrintReport);
             tabPage4.Controls.Add(chartPie);
@@ -2443,9 +2415,7 @@
             tabPage4.Controls.Add(btnGenerateReport);
             tabPage4.Controls.Add(cboReportType);
             tabPage4.Controls.Add(label75);
-            tabPage4.Controls.Add(dtpDateTo);
             tabPage4.Controls.Add(label74);
-            tabPage4.Controls.Add(dtpDateFrom);
             tabPage4.Controls.Add(label73);
             tabPage4.Location = new Point(0, 200);
             tabPage4.Name = "tabPage4";
@@ -2453,6 +2423,20 @@
             tabPage4.TabIndex = 5;
             tabPage4.Text = "Report ";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dtpDateTo
+            // 
+            dtpDateTo.Location = new Point(445, 18);
+            dtpDateTo.Name = "dtpDateTo";
+            dtpDateTo.Size = new Size(203, 30);
+            dtpDateTo.TabIndex = 129;
+            // 
+            // dtpDateFrom
+            // 
+            dtpDateFrom.Location = new Point(136, 18);
+            dtpDateFrom.Name = "dtpDateFrom";
+            dtpDateFrom.Size = new Size(203, 30);
+            dtpDateFrom.TabIndex = 128;
             // 
             // dgvReport
             // 
@@ -2529,20 +2513,20 @@
             // label82
             // 
             label82.AutoSize = true;
-            label82.Location = new Point(116, 77);
+            label82.Location = new Point(107, 39);
             label82.Name = "label82";
-            label82.Size = new Size(61, 25);
+            label82.Size = new Size(133, 25);
             label82.TabIndex = 9;
-            label82.Text = "$0.00";
+            label82.Text = "Tax Collected";
             // 
             // lblTaxCollected
             // 
             lblTaxCollected.AutoSize = true;
-            lblTaxCollected.Location = new Point(107, 39);
+            lblTaxCollected.Location = new Point(107, 77);
             lblTaxCollected.Name = "lblTaxCollected";
-            lblTaxCollected.Size = new Size(133, 25);
+            lblTaxCollected.Size = new Size(61, 25);
             lblTaxCollected.TabIndex = 8;
-            lblTaxCollected.Text = "Tax Collected";
+            lblTaxCollected.Text = "$0.00";
             // 
             // panel8
             // 
@@ -2569,20 +2553,20 @@
             // label80
             // 
             label80.AutoSize = true;
-            label80.Location = new Point(116, 77);
+            label80.Location = new Point(118, 39);
             label80.Name = "label80";
-            label80.Size = new Size(61, 25);
+            label80.Size = new Size(114, 25);
             label80.TabIndex = 9;
-            label80.Text = "$0.00";
+            label80.Text = "Profit / Loss";
             // 
             // lblProfitLoss
             // 
             lblProfitLoss.AutoSize = true;
-            lblProfitLoss.Location = new Point(107, 39);
+            lblProfitLoss.Location = new Point(118, 77);
             lblProfitLoss.Name = "lblProfitLoss";
-            lblProfitLoss.Size = new Size(114, 25);
+            lblProfitLoss.Size = new Size(61, 25);
             lblProfitLoss.TabIndex = 8;
-            lblProfitLoss.Text = "Profit / Loss";
+            lblProfitLoss.Text = "$0.00";
             // 
             // panel7
             // 
@@ -2609,20 +2593,20 @@
             // label78
             // 
             label78.AutoSize = true;
-            label78.Location = new Point(116, 77);
+            label78.Location = new Point(116, 39);
             label78.Name = "label78";
-            label78.Size = new Size(61, 25);
+            label78.Size = new Size(144, 25);
             label78.TabIndex = 9;
-            label78.Text = "$0.00";
+            label78.Text = "Total Purchase";
             // 
             // lblRTotalPurchase
             // 
             lblRTotalPurchase.AutoSize = true;
-            lblRTotalPurchase.Location = new Point(107, 39);
+            lblRTotalPurchase.Location = new Point(116, 77);
             lblRTotalPurchase.Name = "lblRTotalPurchase";
-            lblRTotalPurchase.Size = new Size(144, 25);
+            lblRTotalPurchase.Size = new Size(61, 25);
             lblRTotalPurchase.TabIndex = 8;
-            lblRTotalPurchase.Text = "Total Purchase";
+            lblRTotalPurchase.Text = "$0.00";
             // 
             // panel6
             // 
@@ -2649,21 +2633,21 @@
             // 
             label77.AutoSize = true;
             label77.ForeColor = SystemColors.ButtonFace;
-            label77.Location = new Point(116, 77);
+            label77.Location = new Point(116, 40);
             label77.Name = "label77";
-            label77.Size = new Size(61, 25);
+            label77.Size = new Size(111, 25);
             label77.TabIndex = 9;
-            label77.Text = "$0.00";
+            label77.Text = "Total Sales";
             // 
             // lblTotalSale
             // 
             lblTotalSale.AutoSize = true;
             lblTotalSale.ForeColor = SystemColors.ButtonFace;
-            lblTotalSale.Location = new Point(107, 39);
+            lblTotalSale.Location = new Point(116, 77);
             lblTotalSale.Name = "lblTotalSale";
-            lblTotalSale.Size = new Size(111, 25);
+            lblTotalSale.Size = new Size(61, 25);
             lblTotalSale.TabIndex = 8;
-            lblTotalSale.Text = "Total Sales";
+            lblTotalSale.Text = "$0.00";
             // 
             // btnGenerateReport
             // 
@@ -2694,27 +2678,6 @@
             label75.TabIndex = 4;
             label75.Text = "Report Type:";
             // 
-            // dtpDateTo
-            // 
-            dtpDateTo.DateCultureInfo = new System.Globalization.CultureInfo("");
-            dtpDateTo.FillColor = Color.White;
-            dtpDateTo.Font = new Font("Microsoft Sans Serif", 12F);
-            dtpDateTo.Location = new Point(446, 18);
-            dtpDateTo.Margin = new Padding(4, 5, 4, 5);
-            dtpDateTo.MaxLength = 10;
-            dtpDateTo.MinimumSize = new Size(63, 0);
-            dtpDateTo.Name = "dtpDateTo";
-            dtpDateTo.Padding = new Padding(0, 0, 30, 2);
-            dtpDateTo.Size = new Size(188, 36);
-            dtpDateTo.SymbolDropDown = 61555;
-            dtpDateTo.SymbolNormal = 61555;
-            dtpDateTo.SymbolSize = 24;
-            dtpDateTo.TabIndex = 3;
-            dtpDateTo.Text = "2026-06-28";
-            dtpDateTo.TextAlignment = ContentAlignment.MiddleLeft;
-            dtpDateTo.Value = new DateTime(2026, 6, 28, 4, 36, 43, 876);
-            dtpDateTo.Watermark = "";
-            // 
             // label74
             // 
             label74.AutoSize = true;
@@ -2723,27 +2686,6 @@
             label74.Size = new Size(88, 25);
             label74.TabIndex = 3;
             label74.Text = "Date To:";
-            // 
-            // dtpDateFrom
-            // 
-            dtpDateFrom.DateCultureInfo = new System.Globalization.CultureInfo("");
-            dtpDateFrom.FillColor = Color.White;
-            dtpDateFrom.Font = new Font("Microsoft Sans Serif", 12F);
-            dtpDateFrom.Location = new Point(136, 18);
-            dtpDateFrom.Margin = new Padding(4, 5, 4, 5);
-            dtpDateFrom.MaxLength = 10;
-            dtpDateFrom.MinimumSize = new Size(63, 0);
-            dtpDateFrom.Name = "dtpDateFrom";
-            dtpDateFrom.Padding = new Padding(0, 0, 30, 2);
-            dtpDateFrom.Size = new Size(188, 36);
-            dtpDateFrom.SymbolDropDown = 61555;
-            dtpDateFrom.SymbolNormal = 61555;
-            dtpDateFrom.SymbolSize = 24;
-            dtpDateFrom.TabIndex = 2;
-            dtpDateFrom.Text = "2026-06-28";
-            dtpDateFrom.TextAlignment = ContentAlignment.MiddleLeft;
-            dtpDateFrom.Value = new DateTime(2026, 6, 28, 4, 36, 43, 876);
-            dtpDateFrom.Watermark = "";
             // 
             // label73
             // 
@@ -2756,6 +2698,8 @@
             // 
             // tabPage6
             // 
+            tabPage6.Controls.Add(dtpODateFrom);
+            tabPage6.Controls.Add(dtpODateTo);
             tabPage6.Controls.Add(cboStatus);
             tabPage6.Controls.Add(btnOCancel);
             tabPage6.Controls.Add(btnClear);
@@ -2775,19 +2719,31 @@
             tabPage6.Controls.Add(label88);
             tabPage6.Controls.Add(dgvOrderList);
             tabPage6.Controls.Add(label87);
-            tabPage6.Controls.Add(dtpODateTo);
             tabPage6.Controls.Add(label86);
             tabPage6.Controls.Add(label85);
-            tabPage6.Controls.Add(dtpODateFrom);
             tabPage6.Controls.Add(button32);
             tabPage6.Controls.Add(label84);
             tabPage6.Controls.Add(txtSearchOrder);
-            tabPage6.Location = new Point(0, 240);
+            tabPage6.Location = new Point(0, 40);
             tabPage6.Name = "tabPage6";
-            tabPage6.Size = new Size(200, 0);
+            tabPage6.Size = new Size(1807, 1015);
             tabPage6.TabIndex = 6;
             tabPage6.Text = "Order History";
             tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // dtpODateFrom
+            // 
+            dtpODateFrom.Location = new Point(713, 12);
+            dtpODateFrom.Name = "dtpODateFrom";
+            dtpODateFrom.Size = new Size(200, 30);
+            dtpODateFrom.TabIndex = 147;
+            // 
+            // dtpODateTo
+            // 
+            dtpODateTo.Location = new Point(976, 13);
+            dtpODateTo.Name = "dtpODateTo";
+            dtpODateTo.Size = new Size(225, 30);
+            dtpODateTo.TabIndex = 146;
             // 
             // cboStatus
             // 
@@ -2837,41 +2793,41 @@
             // 
             lblOGrandTotal.AutoSize = true;
             lblOGrandTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblOGrandTotal.Location = new Point(1099, 565);
+            lblOGrandTotal.Location = new Point(1562, 565);
             lblOGrandTotal.Name = "lblOGrandTotal";
-            lblOGrandTotal.Size = new Size(127, 28);
+            lblOGrandTotal.Size = new Size(65, 28);
             lblOGrandTotal.TabIndex = 141;
-            lblOGrandTotal.Text = "Grand Total:";
+            lblOGrandTotal.Text = "$0.00";
             // 
             // label94
             // 
             label94.AutoSize = true;
             label94.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label94.Location = new Point(1485, 514);
+            label94.Location = new Point(1115, 514);
             label94.Name = "label94";
-            label94.Size = new Size(65, 28);
+            label94.Size = new Size(49, 28);
             label94.TabIndex = 140;
-            label94.Text = "$0.00";
+            label94.Text = "Tax:";
             // 
             // label95
             // 
             label95.AutoSize = true;
             label95.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label95.Location = new Point(1485, 471);
+            label95.Location = new Point(1059, 470);
             label95.Name = "label95";
-            label95.Size = new Size(65, 28);
+            label95.Size = new Size(105, 28);
             label95.TabIndex = 139;
-            label95.Text = "$0.00";
+            label95.Text = "Sub Total:";
             // 
             // label96
             // 
             label96.AutoSize = true;
             label96.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label96.Location = new Point(1485, 565);
+            label96.Location = new Point(1100, 565);
             label96.Name = "label96";
-            label96.Size = new Size(65, 28);
+            label96.Size = new Size(64, 28);
             label96.TabIndex = 138;
-            label96.Text = "$0.00";
+            label96.Text = "Total:";
             // 
             // label97
             // 
@@ -2885,21 +2841,21 @@
             // 
             lblOTax.AutoSize = true;
             lblOTax.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblOTax.Location = new Point(1114, 514);
+            lblOTax.Location = new Point(1562, 514);
             lblOTax.Name = "lblOTax";
-            lblOTax.Size = new Size(49, 28);
+            lblOTax.Size = new Size(65, 28);
             lblOTax.TabIndex = 136;
-            lblOTax.Text = "Tax:";
+            lblOTax.Text = "$0.00";
             // 
             // lblOSubTotal
             // 
             lblOSubTotal.AutoSize = true;
             lblOSubTotal.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblOSubTotal.Location = new Point(1058, 471);
+            lblOSubTotal.Location = new Point(1562, 470);
             lblOSubTotal.Name = "lblOSubTotal";
-            lblOSubTotal.Size = new Size(105, 28);
+            lblOSubTotal.Size = new Size(65, 28);
             lblOSubTotal.TabIndex = 135;
-            lblOSubTotal.Text = "Sub Total:";
+            lblOSubTotal.Text = "$0.00";
             // 
             // dgvOrderDetail
             // 
@@ -2908,41 +2864,13 @@
             dgvOrderDetail.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvOrderDetail.BackgroundColor = SystemColors.ButtonHighlight;
             dgvOrderDetail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderDetail.Columns.AddRange(new DataGridViewColumn[] { colItem2, colQty2, colPrice1, colSubTotal });
             dgvOrderDetail.Location = new Point(1030, 155);
             dgvOrderDetail.Name = "dgvOrderDetail";
             dgvOrderDetail.ReadOnly = true;
             dgvOrderDetail.RowHeadersWidth = 51;
             dgvOrderDetail.Size = new Size(597, 292);
             dgvOrderDetail.TabIndex = 134;
-            // 
-            // colItem2
-            // 
-            colItem2.HeaderText = "Items";
-            colItem2.MinimumWidth = 6;
-            colItem2.Name = "colItem2";
-            colItem2.ReadOnly = true;
-            // 
-            // colQty2
-            // 
-            colQty2.HeaderText = "Qty";
-            colQty2.MinimumWidth = 6;
-            colQty2.Name = "colQty2";
-            colQty2.ReadOnly = true;
-            // 
-            // colPrice1
-            // 
-            colPrice1.HeaderText = "Price";
-            colPrice1.MinimumWidth = 6;
-            colPrice1.Name = "colPrice1";
-            colPrice1.ReadOnly = true;
-            // 
-            // colSubTotal
-            // 
-            colSubTotal.HeaderText = "SubTotal";
-            colSubTotal.MinimumWidth = 6;
-            colSubTotal.Name = "colSubTotal";
-            colSubTotal.ReadOnly = true;
+            dgvOrderDetail.CellContentClick += dgvOrderDetail_CellContentClick;
             // 
             // lblDate
             // 
@@ -3013,27 +2941,6 @@
             label87.TabIndex = 6;
             label87.Text = "Status";
             // 
-            // dtpODateTo
-            // 
-            dtpODateTo.DateCultureInfo = new System.Globalization.CultureInfo("");
-            dtpODateTo.FillColor = Color.White;
-            dtpODateTo.Font = new Font("Microsoft Sans Serif", 12F);
-            dtpODateTo.Location = new Point(1001, 15);
-            dtpODateTo.Margin = new Padding(4, 5, 4, 5);
-            dtpODateTo.MaxLength = 10;
-            dtpODateTo.MinimumSize = new Size(63, 0);
-            dtpODateTo.Name = "dtpODateTo";
-            dtpODateTo.Padding = new Padding(0, 0, 30, 2);
-            dtpODateTo.Size = new Size(188, 36);
-            dtpODateTo.SymbolDropDown = 61555;
-            dtpODateTo.SymbolNormal = 61555;
-            dtpODateTo.SymbolSize = 24;
-            dtpODateTo.TabIndex = 4;
-            dtpODateTo.Text = "2026-06-28";
-            dtpODateTo.TextAlignment = ContentAlignment.MiddleLeft;
-            dtpODateTo.Value = new DateTime(2026, 6, 28, 4, 52, 45, 138);
-            dtpODateTo.Watermark = "";
-            // 
             // label86
             // 
             label86.AutoSize = true;
@@ -3051,27 +2958,6 @@
             label85.Size = new Size(109, 25);
             label85.TabIndex = 4;
             label85.Text = "Date From:";
-            // 
-            // dtpODateFrom
-            // 
-            dtpODateFrom.DateCultureInfo = new System.Globalization.CultureInfo("");
-            dtpODateFrom.FillColor = Color.White;
-            dtpODateFrom.Font = new Font("Microsoft Sans Serif", 12F);
-            dtpODateFrom.Location = new Point(715, 15);
-            dtpODateFrom.Margin = new Padding(4, 5, 4, 5);
-            dtpODateFrom.MaxLength = 10;
-            dtpODateFrom.MinimumSize = new Size(63, 0);
-            dtpODateFrom.Name = "dtpODateFrom";
-            dtpODateFrom.Padding = new Padding(0, 0, 30, 2);
-            dtpODateFrom.Size = new Size(188, 36);
-            dtpODateFrom.SymbolDropDown = 61555;
-            dtpODateFrom.SymbolNormal = 61555;
-            dtpODateFrom.SymbolSize = 24;
-            dtpODateFrom.TabIndex = 3;
-            dtpODateFrom.Text = "2026-06-28";
-            dtpODateFrom.TextAlignment = ContentAlignment.MiddleLeft;
-            dtpODateFrom.Value = new DateTime(2026, 6, 28, 4, 52, 45, 138);
-            dtpODateFrom.Watermark = "";
             // 
             // button32
             // 
@@ -3315,7 +3201,6 @@
         private Label lblPTax;
         private Label lblPSubTotal;
         private Button btnAddToCart;
-        private Label label22;
         private Label label21;
         private TextBox txtTotal;
         private TextBox txtUnitPrice;
@@ -3328,7 +3213,6 @@
         private ComboBox cboProduct;
         private Label label17;
         private Label label16;
-        private Sunny.UI.UIDatetimePicker dtbDate;
         private Label label15;
         private Label label14;
         private ComboBox cboSupplier;
@@ -3401,9 +3285,7 @@
         private Button btnGenerateReport;
         private ComboBox cboReportType;
         private Label label75;
-        private Sunny.UI.UIDatePicker dtpDateTo;
         private Label label74;
-        private Sunny.UI.UIDatePicker dtpDateFrom;
         private Label label73;
         private TabPage tabPage6;
         private ComboBox cboStatus;
@@ -3418,10 +3300,6 @@
         private Label lblOTax;
         private Label lblOSubTotal;
         private DataGridView dgvOrderDetail;
-        private DataGridViewTextBoxColumn colItem2;
-        private DataGridViewTextBoxColumn colQty2;
-        private DataGridViewTextBoxColumn colPrice1;
-        private DataGridViewTextBoxColumn colSubTotal;
         private Label lblDate;
         private Label label91;
         private Label lblOrderID;
@@ -3429,13 +3307,16 @@
         private Label label88;
         private DataGridView dgvOrderList;
         private Label label87;
-        private Sunny.UI.UIDatePicker dtpODateTo;
         private Label label86;
         private Label label85;
-        private Sunny.UI.UIDatePicker dtpODateFrom;
         private Button button32;
         private Label label84;
         private TextBox txtSearchOrder;
         private Label lblPaidAmount;
+        private DateTimePicker dtpDateTo;
+        private DateTimePicker dtpDateFrom;
+        private DateTimePicker dtpODateFrom;
+        private DateTimePicker dtpODateTo;
+        private DateTimePicker dtbDate;
     }
 }
